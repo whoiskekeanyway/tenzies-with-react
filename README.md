@@ -1,3 +1,6 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d3f36a72-b765-4e49-b1fe-b4689b58c19a/deploy-status)](https://app.netlify.com/sites/tenzies-with-react/deploys)
+
+
 # Tenzies Game with Reactjs
 
 This is a React game app called Tenzies. It is a game where you can play with your friends.Roll until all dice are the same. Click each die to freeze it at its
@@ -32,7 +35,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [https://meme-generator-with-react.netlify.app/](https://meme-generator-with-react.netlify.app/)
+- Live Site URL: [https://tenzies-with-react.netlify.app/](https://tenzies-with-react.netlify.app/)
 
 ## My process
 
@@ -44,11 +47,14 @@ Users should be able to:
 - CSS Grid
 - Mobile-first workflow
 - Javascript
+- Reactjs
+- nanoid
+- Netlify
+- Confetti
+
 
 ### What I learned
 
-- What are Pseudo-classes?
-  A pseudo-class is used to define a special state of an element.
 
 - React State
 
@@ -66,20 +72,19 @@ What is the useEffect cleanup function? Just like the name implies, the useEffec
 
 - React Events
 - React Forms - I will create a seperate post for this
+- nanoid is used to distinguish each dice
+- Confetti is used to show the winner
 
 ```js
 // Select a random image from the API and save it into the state
-function loadRandomImage(event) {
-  event.preventDefault();
-  const randomNumber = Math.floor(Math.random() * allMemes.length);
-  const url = allMemes[randomNumber].url;
-  setMeme((prevMeme) => {
+  function generateNewDie() {
     return {
-      ...prevMeme,
-      randomImage: url,
+      value: Math.ceil(Math.random() * 6),
+      isHeld: false,
+      // nanoid is a random string generator used as id number generator for each die
+      id: nanoid(),
     };
-  });
-}
+  }
 ```
 
 ## Author
